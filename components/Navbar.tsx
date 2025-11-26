@@ -1,40 +1,52 @@
 import CardNav from "../components/CardNav";
-import AnimatedContent from "./AnimatedContent";
 
-const Navbar = () => {
+const Navbar = ({ className = "" }) => {
   const items = [
     {
-      label: "About",
-      bgColor: "#0D0716",
-      textColor: "#fff",
-      links: [
-        { label: "Company", ariaLabel: "About Company" },
-        { label: "Careers", ariaLabel: "About Careers" },
-      ],
-    },
-    {
-      label: "Projects",
-      bgColor: "#170D27",
-      textColor: "#fff",
-      links: [
-        { label: "Featured", ariaLabel: "Featured Projects" },
-        { label: "Case Studies", ariaLabel: "Project Case Studies" },
-      ],
-    },
-    {
-      label: "Contact",
+      label: "Introduction",
       bgColor: "#271E37",
       textColor: "#fff",
       links: [
-        { label: "Email", ariaLabel: "Email us" },
-        { label: "Twitter", ariaLabel: "Twitter" },
-        { label: "LinkedIn", ariaLabel: "LinkedIn" },
+        {
+          label: "Main Idea",
+          ariaLabel: "About the Idea",
+          href: "hero-section",
+        },
+        {
+          label: "System",
+          ariaLabel: "About the System Architecture",
+          href: "system-section",
+        },
       ],
     },
+    {
+      label: "About",
+      bgColor: "#170D27",
+      textColor: "#fff",
+      links: [
+        { label: "Team", ariaLabel: "About Team" },
+        { label: "The Problem", ariaLabel: "About Problem" },
+        { label: "The Solution", ariaLabel: "About Solution" },
+      ],
+    },
+    // {
+    //   label: "Projects",
+    //   bgColor: "#0D0716",
+    //   textColor: "#fff",
+    //   links: [
+    //     {
+    //       label: "Featured",
+    //       ariaLabel: "Featured Projects",
+    //       href: "/featured",
+    //     },
+    //     { label: "Case Studies", ariaLabel: "Project Case Studies" },
+    //   ],
+    // },
   ];
 
   return (
     <CardNav
+      className={className}
       items={items}
       baseColor="#fff"
       menuColor="#000"

@@ -1,11 +1,27 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+:root {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: rgb(1, 1, 25);
-  font-family: "Poppins";
+  font-family: var(--font-poppins);
+}
+
+.logo-name {
+  font-family: var(--font-science-gothic);
+}
+
+#hero-section {
+  background-image: url("../public/image.jpg");
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
 }

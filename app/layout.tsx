@@ -3,9 +3,18 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SmoothScroll from "../components/SmoothScroll";
+import localFont from "next/font/local";
+import DotGrid from "@/components/DotGrid";
+
+const scienceGothic = localFont({
+  src: "../public/fonts/ScienceGothic-Regular.ttf",
+  variable: "--font-science-gothic",
+  display: "swap",
+});
 
 const poppins = Poppins({
-  variable: "--font-geist-sans",
+  variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
@@ -22,8 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
-        <Navbar />
+      <body
+        className={`${poppins.className} ${poppins.variable} ${scienceGothic.variable} antialiased relative`}
+      >
+        <SmoothScroll />
+        <Navbar className="fixed top-0" />
         {children}
         <Footer />
       </body>

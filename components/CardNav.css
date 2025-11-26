@@ -1,5 +1,5 @@
 .card-nav-container {
-  position: absolute;
+  position: fixed;
   top: 2em;
   left: 50%;
   transform: translateX(-50%);
@@ -13,10 +13,12 @@
   display: block;
   height: 60px;
   padding: 0;
-  background-color: white;
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   will-change: height;
@@ -33,6 +35,9 @@
   justify-content: space-between;
   padding: 0.5rem 0.45rem 0.55rem 1.1rem;
   z-index: 2;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .hamburger-menu {
@@ -53,10 +58,7 @@
   width: 30px;
   height: 2px;
   background-color: currentColor;
-  transition:
-    transform 0.25s ease,
-    opacity 0.2s ease,
-    margin 0.3s ease;
+  transition: transform 0.25s ease, opacity 0.2s ease, margin 0.3s ease;
   transform-origin: 50% 50%;
 }
 
@@ -72,6 +74,7 @@
   display: flex;
   align-items: center;
   position: absolute;
+  height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -82,20 +85,24 @@
 }
 
 .card-nav-cta-button {
-  background-color: #111;
-  color: white;
-  border: none;
+  background-color: var(--button-bg, #111);
+  color: var(--button-text, white);
+  border: 1px solid transparent;
   border-radius: calc(0.75rem - 0.35rem);
   padding: 0 1rem;
   height: 100%;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   align-items: center;
+  position: relative;
+  z-index: 3;
 }
 
 .card-nav-cta-button:hover {
-  background-color: #333;
+  background-color: transparent;
+  color: #111;
+  border: 1px solid #111;
 }
 
 .card-nav-content {

@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 // use your own icon import if react-icons is not available
 import { GoArrowUpRight } from "react-icons/go";
 import "./CardNav.css";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const CardNav = ({
   items,
@@ -142,7 +143,7 @@ const CardNav = ({
       <nav
         ref={navRef}
         className={`card-nav ${isExpanded ? "open" : ""}`}
-        style={{ backgroundColor: baseColor }}
+        // style={{ backgroundColor: baseColor }}
       >
         <div className="card-nav-top">
           <div
@@ -158,15 +159,29 @@ const CardNav = ({
           </div>
 
           <div className="logo-container">
-            <h1 className="text-xl">UzMedicare</h1>
+            <img src="/transparent-bg-logo.png" width={58} alt="UzMedicare" />
+            <h1 className="text-2xl">UzMedicare</h1>
           </div>
 
           <button
             type="button"
             className="card-nav-cta-button"
-            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            style={{
+              "--button-bg": buttonBgColor,
+              "--button-text": buttonTextColor,
+            }}
           >
-            Get Started
+            <Link
+              to="hero-section"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+              // scrollSnap={true}
+              // scrollOffset={100}
+            >
+              Get Started
+            </Link>
           </button>
         </div>
 
@@ -181,10 +196,14 @@ const CardNav = ({
               <div className="nav-card-label">{item.label}</div>
               <div className="nav-card-links">
                 {item.links?.map((lnk, i) => (
-                  <a
+                  <Link
                     key={`${lnk.label}-${i}`}
                     className="nav-card-link"
-                    href={lnk.href}
+                    to={`${lnk.href}`}
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={500}
                     aria-label={lnk.ariaLabel}
                   >
                     <GoArrowUpRight
@@ -192,7 +211,7 @@ const CardNav = ({
                       aria-hidden="true"
                     />
                     {lnk.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

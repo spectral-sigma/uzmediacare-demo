@@ -2,9 +2,11 @@ import TextType from "./TextType";
 import AnimatedContent from "./AnimatedContent";
 import { cn } from "@/lib/utils";
 
-const HeroSection = () => {
+const HeroSection = ({ className = "" }) => {
   return (
-    <div className="relative flex h-screen w-full items-center justify-center bg-white">
+    <div
+      className={`relative flex h-screen w-full items-center justify-center bg-white ${className}`}
+    >
       <div
         className={cn(
           "absolute inset-0",
@@ -27,7 +29,7 @@ const HeroSection = () => {
           delay={0.3}
         >
           <TextType
-            className="text-5xl w-120 text-center h-48"
+            className="text-5xl w-130 text-center h-48 logo-name text-gray-700"
             text={[
               "Revolutionizing Healthcare with UzMedicare",
               "Empowering Your Health, Anywhere, Anytime",
