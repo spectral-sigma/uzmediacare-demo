@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SmoothScroll from "../components/SmoothScroll";
 import localFont from "next/font/local";
-import DotGrid from "@/components/DotGrid";
 
 const scienceGothic = localFont({
   src: "../public/fonts/ScienceGothic-Regular.ttf",
